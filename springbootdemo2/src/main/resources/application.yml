@@ -43,3 +43,11 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
+#添加日志配置backLog
+logging:
+  file: F:\日志文件\SpringBootLog\logger.log  # 日志文件,绝对路径或相对路径
+#  path:   保存日志文件目录路径
+#  config:  日志配置文件,Spring Boot默认使用classpath路径下的日志配置文件,如:logback.xml
+  level:  # 日志级别
+    root: info

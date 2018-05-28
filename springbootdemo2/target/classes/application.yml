@@ -43,3 +43,8 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
+logging:
+  file: F:\日志文件\SpringBootLog\logger.log
+  level:
+    root: info

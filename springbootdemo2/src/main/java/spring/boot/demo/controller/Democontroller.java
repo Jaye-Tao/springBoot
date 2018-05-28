@@ -1,5 +1,7 @@
 package spring.boot.demo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import spring.boot.demo.dao.dto.ActivityRelation;
 import spring.boot.demo.service.ActivityRelationService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +20,7 @@ import java.util.List;
 @Controller
 public class Democontroller{
 
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private ActivityRelationService activityRelationService;
 
@@ -31,5 +35,14 @@ public class Democontroller{
         lis.add(activityRelation.getFormNo());
         mv.addAttribute("name",lis);
         return "index";
+    }
+
+    @RequestMapping("log")
+    public void logTest(){
+        logger.trace("I am trace log.");
+        logger.debug("I am debug log.");
+        logger.info("I am info log.");
+        logger.warn("I am warn log.");
+        logger.error("I am error log.{}", new Date());
     }
 }
