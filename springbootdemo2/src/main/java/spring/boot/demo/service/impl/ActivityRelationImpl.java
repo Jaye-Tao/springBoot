@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import spring.boot.demo.dao.dto.ActivityRelation;
 import spring.boot.demo.dao.mapper.ActivityRelationMapper;
 import spring.boot.demo.service.ActivityRelationService;
+import spring.boot.demo.service.CommonRedisService;
 
 /**
  * Created Jay
@@ -15,6 +16,8 @@ public class ActivityRelationImpl implements ActivityRelationService {
 
     @Autowired
     private ActivityRelationMapper activityRelationMapper;
+    @Autowired
+    private CommonRedisService redisService;
 
     @Override
     public ActivityRelation findData(Integer id) {

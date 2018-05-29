@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Service
-public class RedisService {
+public class CommonRedisService {
 
     @Autowired
     private RedisTemplate redisTemplate;

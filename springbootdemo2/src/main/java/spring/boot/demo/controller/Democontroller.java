@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import spring.boot.demo.dao.dto.ActivityRelation;
 import spring.boot.demo.service.ActivityRelationService;
-import spring.boot.demo.service.RedisService;
+import spring.boot.demo.service.CommonRedisService;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,7 +26,7 @@ public class Democontroller {
     private ActivityRelationService activityRelationService;
 
     @Autowired
-    private RedisService redisService;
+    private CommonRedisService redisService;
 
 
     @RequestMapping("/hello")
@@ -60,7 +60,7 @@ public class Democontroller {
     public String reidsTest(Model mv) {
         List<Object> list = new ArrayList<>();
         redisService.set("test:data","redisData");
-        Object tmp = redisService.get("test");
+        Object tmp = redisService.get("hah");
         logger.info(tmp + "*********************************");
         System.out.println(tmp);
         list.add(tmp);
