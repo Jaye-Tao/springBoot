@@ -12,17 +12,17 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  */
 @SpringBootApplication
 @MapperScan("spring.boot.demo.dao.mapper")
-public class StartApp extends SpringBootServletInitializer {
+public class StartApp {
 
     public static void main(String[] args) {
         SpringApplication.run(StartApp.class, args);
     }
 
-//    /**
-//     * 改为war 部署修改启动类
-//     * @param builder
-//     * @return
-//     */
+    /**
+     * 改为war 部署修改启动类
+     * @param builder
+     * @return
+     */
 //    @Override
 //    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 //        // TODO Auto-generated method stub
