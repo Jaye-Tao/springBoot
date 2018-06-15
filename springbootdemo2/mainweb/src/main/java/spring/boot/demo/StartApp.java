@@ -28,7 +28,6 @@ public class StartApp extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         // TODO Auto-generated method stub
-//      return super.configure(builder);
         return builder.sources(this.getClass());
     }
 }

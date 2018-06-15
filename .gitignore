@@ -1,3 +1,5 @@
 springbootdemo2/target/
 springbootdemo2/.idea/
 *.iml
+springbootdemo2/mainweb/target/
+springbootdemo2/common/target/
