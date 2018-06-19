@@ -33,6 +33,9 @@ public class Democontroller {
 
     @Autowired
     private DemoRabbitMqSender demoRabbitMqSender;
+    @Autowired
+    private DemoRabbitMqReceiver demoRabbitMqReceiver;
+
 
     /**
      * 数据库连接测试
@@ -84,8 +87,13 @@ public class Democontroller {
      */
     @ApiOperation(value="发送测试消息队列", notes="addEntity")
     @RequestMapping(value = "/addRabbitMq", method = RequestMethod.GET)
-    public void addEntity(HttpSession httpSession) {
-        demoRabbitMqSender.send("test rabbitmq hello!");
+    public String addEntity(Model mv) {
+        String mes="test rabbitmq hello!";
+        demoRabbitMqSender.send("test-quen",mes);
         logger.info("消息发送成功!");
+        mv.addAttribute("mes",mes);
+        return "mesMain";
     }
+
+
 }

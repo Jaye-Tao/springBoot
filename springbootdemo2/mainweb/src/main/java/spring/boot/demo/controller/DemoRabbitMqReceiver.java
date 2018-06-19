@@ -10,16 +10,19 @@ import org.springframework.stereotype.Component;
  * 消息队列接收类 
  */  
 @Component
-@RabbitListener(queues = "hello")
+@RabbitListener(queues = "test-quen")
 public class DemoRabbitMqReceiver {
 
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
     @RabbitHandler
-    public void process(String content) {  
+    public void process(String content) {
         System.out.println("Receiver : " + content);
         logger.info("rabbitmq-Test : " + content);
-    }  
+    }
+
+
+
   
 }  

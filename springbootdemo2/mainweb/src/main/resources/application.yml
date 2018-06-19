@@ -40,6 +40,7 @@ spring:
         port: 5672
         username: admin
         password: admin
+        virtual-host: new-virtual #虚拟机
     freemarker:
         request-context-attribute: req  #req访问request
         suffix: .ftl  #后缀名
