@@ -1,15 +1,18 @@
 package spring.boot.demo.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import spring.boot.demo.dao.dto.ActivityRelation;
 import spring.boot.demo.service.ActivityRelationService;
 import spring.boot.demo.service.CommonRedisService;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +31,14 @@ public class Democontroller {
     @Autowired
     private CommonRedisService redisService;
 
+    @Autowired
+    private DemoRabbitMqSender demoRabbitMqSender;
 
+    /**
+     * 数据库连接测试
+     * @param mv
+     * @return
+     */
     @RequestMapping("/hello")
     public String main(Model mv) {
         List lis = new ArrayList();
@@ -42,7 +52,7 @@ public class Democontroller {
     }
 
     /**
-     * 日志
+     * 日志测试
      */
     @RequestMapping("log")
     public void logTest() {
@@ -66,5 +76,16 @@ public class Democontroller {
         list.add(tmp);
         mv.addAttribute("name", list);
         return "index";
+    }
+
+
+    /**
+     * 发送测试消息队列
+     */
+    @ApiOperation(value="发送测试消息队列", notes="addEntity")
+    @RequestMapping(value = "/addRabbitMq", method = RequestMethod.GET)
+    public void addEntity(HttpSession httpSession) {
+        demoRabbitMqSender.send("test rabbitmq hello!");
+        logger.info("消息发送成功!");
     }
 }
