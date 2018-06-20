@@ -15,6 +15,6 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="/webjars/jquery/1.11.3/jquery.js"></script>
-
+<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-<#assign base=req.contextPath />
 <!DOCTYPE HTML>
 <head>
 <#include "main.ftl"/>
@@ -60,5 +59,31 @@
     </tbody>
 </table>
 <h1>${base}</h1>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    名:  <input type="text" ng-model="firstName"><br>
+    姓:  <input type="text" ng-model="lastName"><br>
+
+    <br>
+    姓名: {{firstName + " " + lastName}}
+
+    <div ng-controller="moneyCtrl">
+        <h1 > 价格：{{ 12.564789| currency }}</h1></div>
+
+</div>
+
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doen";
+    });
+    app.controller('moneyCtrl', function($scope) {
+        $scope.price = "12.56";
+    });
+</script>
 </body>
 </html>
