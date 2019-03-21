@@ -7,6 +7,8 @@ import spring.boot.demo.dao.mapper.ActivityRelationMapper;
 import spring.boot.demo.service.ActivityRelationService;
 import spring.boot.demo.service.CommonRedisService;
 
+import java.util.List;
+
 /**
  * Created Jay
  * Date 2018/5/23
@@ -23,5 +25,10 @@ public class ActivityRelationImpl implements ActivityRelationService {
     public ActivityRelation findData(Integer id) {
         ActivityRelation temp=activityRelationMapper.selectByPrimaryKey(id);
         return temp;
+    }
+
+    @Override
+    public List<ActivityRelation> findDataPage() {
+        return activityRelationMapper.findDataPage();
     }
 }

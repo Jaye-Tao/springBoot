@@ -90,4 +90,10 @@
       parent_form_sn = #{parentFormSn,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="findDataPage" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from activity_relation
+  </select>
 </mapper>

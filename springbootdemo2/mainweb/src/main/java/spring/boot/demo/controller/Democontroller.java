@@ -1,5 +1,7 @@
 package spring.boot.demo.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,19 +40,16 @@ public class Democontroller {
 
 
     /**
-     * 数据库连接测试
+     * 数据库连接测试 (分页测试)
      * @param mv
      * @return
      */
     @RequestMapping("/hello")
     public String main(Model mv) {
         List lis = new ArrayList();
-        ActivityRelation activityRelation = activityRelationService.findData(144);
-        lis.add(activityRelation.getFormSn());
-        lis.add(activityRelation.getParentFormNo());
-        lis.add(activityRelation.getParentFormSn());
-        lis.add(activityRelation.getFormNo());
-        mv.addAttribute("name", lis);
+        PageHelper.startPage(1,10);
+        List<ActivityRelation> activityRelation = activityRelationService.findDataPage();
+        PageInfo<ActivityRelation> appsPageInfo = new PageInfo<>(activityRelation);
         return "index";
     }
 
